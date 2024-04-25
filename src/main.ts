@@ -2,9 +2,9 @@ import './assets/main.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
-import { getActivePinia } from 'pinia'
-import app from '@/App.vue'
+import { createPinia } from 'pinia'
 
-app.use(getActivePinia())
+const app = createApp(App)
 
+app.use(createPinia())
 createApp(App).mount('#app')
