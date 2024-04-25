@@ -3,8 +3,8 @@ import axios from 'axios'
 import type { vehicleI } from '@/types/types'
 
 export const useVehicle = defineStore('vehicle', {
-  state: (): { vechicles: vehicleI[]; selectedVehicle: vehicleI| undefined} => {
-    return { vechicles: [], selectedVehicle: undefined }
+  state: (): { vechicles: vehicleI[]; selectedVehicle: vehicleI[]} => {
+    return { vechicles: [], selectedVehicle: [] }
   },
   actions: {
     async getVehicles(): Promise<vehicleI[]> {
@@ -22,8 +22,7 @@ export const useVehicle = defineStore('vehicle', {
       else if (value === 'По убыванию') this.vechicles.sort((a, b) => b.year - a.year)
     },
     selectVehicle(data: vehicleI) {
-      this.selectedVehicle = data
-      console.log(this.selectedVehicle)
+
     }
   },
 

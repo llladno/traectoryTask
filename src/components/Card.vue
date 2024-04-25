@@ -6,8 +6,12 @@ defineProps({
   item: Object as () => vehicleI
 })
 
+const vehicle = useVehicle()
+
 function selectVehicle(item: vehicleI) {
-  useVehicle().selectVehicle(item)
+  vehicle.selectedVehicle = [item]
+  console.log(vehicle.selectedVehicle[0])
+  vehicle.$patch({selectedVehicle: [item]})
 }
 </script>
 
