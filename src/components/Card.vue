@@ -10,7 +10,6 @@ const vehicle = useVehicle()
 
 function selectVehicle(item: vehicleI) {
   vehicle.selectedVehicle = [item]
-  console.log(vehicle.selectedVehicle[0])
   vehicle.$patch({selectedVehicle: [item]})
 }
 </script>
@@ -39,9 +38,18 @@ function selectVehicle(item: vehicleI) {
   display: grid;
   align-items: center;
   row-gap: 30px;
-  background: #f2f2f2;
+  background: #ffffff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border-radius: 20px;
-  padding: 20px
+  padding: 20px;
+  transition: 0.2s;
+}
+
+.card:hover{
+  row-gap: 30px;
+  background: #f8f8f8;
+  box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
+  border-radius: 20px;
 }
 
 .colorFlex{
@@ -60,16 +68,18 @@ function selectVehicle(item: vehicleI) {
 button{
   grid-column: 2/3;
   border: none;
-  background: #9cbfd7;
+  background: #000000;
+  color: white;
   border-radius: 5px;
   padding: 10px 0;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 button:hover{
   grid-column: 2/3;
   border: none;
-  background: #89adc5;
+  background: #363636;
   border-radius: 5px;
   padding: 10px 0;
 }

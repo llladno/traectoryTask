@@ -13,7 +13,7 @@ export const useVehicle = defineStore('vehicle', {
       return result.data
     },
     sortByPrice(value: string){
-      console.log(this.vechicles)
+
       if (value === 'По возрастанию') this.vechicles.sort((a, b) => a.price - b.price)
       else if (value === 'По убыванию') this.vechicles.sort((a, b) => b.price - a.price)
     },
@@ -21,8 +21,22 @@ export const useVehicle = defineStore('vehicle', {
       if (value === 'По возрастанию') this.vechicles.sort((a, b) => a.year - b.year)
       else if (value === 'По убыванию') this.vechicles.sort((a, b) => b.year - a.year)
     },
-    selectVehicle(data: vehicleI) {
-
+    changeVehicle(data: any, id: number) {
+      this.vechicles[id-1] = {
+        id: id-1,
+        name: data[0].value,
+        model: data[1].value,
+        year: data[2].value,
+        color: data[3].value,
+        price: data[4].value,
+        latitude: data[5].value,
+        longitude: data[6].value
+      }
+    },
+    deleteVehicle(id: number) {
+      this.vechicles.forEach((vehicle, index) => {
+        if (vehicle.id === id) this.vechicles.splice(index, 1)
+      })
     }
   },
 

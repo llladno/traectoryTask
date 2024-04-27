@@ -43,8 +43,4 @@ div {
   display: flex;
   gap: 20px;
 }
-
-.filter{
-  margin: 30px 0 0 50px
-}
 </style>
